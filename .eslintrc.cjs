@@ -18,6 +18,14 @@ module.exports = {
   rules: {
     "react-refresh/only-export-components": "warn",
     "prettier/prettier": ["error", { endOfLine: "auto" }],
+    "react/function-component-definition": [
+      "error",
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
+    restrictDefaultExports: off,
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
   },
