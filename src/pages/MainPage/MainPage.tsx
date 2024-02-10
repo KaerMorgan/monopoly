@@ -1,8 +1,8 @@
-import Board from '../components/Board';
+import Board from '../../components/Board';
 
 const MainPage = () => {
   return (
-    <main>
+    <main className='main'>
       <Board />
     </main>
   );
