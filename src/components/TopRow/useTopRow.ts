@@ -1,5 +1,5 @@
-import { fieldList } from "../../data"
+import { fieldList } from '../../data';
 
 export const useTopRow = () => {
-    return fieldList.slice(0, 11)
-}
+  return fieldList.slice(0, 11);
+};
