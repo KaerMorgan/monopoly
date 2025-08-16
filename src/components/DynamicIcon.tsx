@@ -24,7 +24,10 @@ export const DynamicIcon = ({ name, ...props }: Props) => {
 
       return { default: IconComponent };
     } catch (error) {
-      console.error('❌[DynamicIcon] Icon ' + name + ' was not found.');
+      console.error(
+        '❌[DynamicIcon] Icon ' + name + ' was not found. \n Error: ',
+        error,
+      );
       return { default: HomeIcon };
     }
   });

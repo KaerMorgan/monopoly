@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { FieldData } from '../data';
 import { DynamicIcon } from './DynamicIcon';
-import { JailField } from './JailField';
+// import { JailField } from './JailField';
 
 type Props = {
   data: FieldData;
@@ -9,19 +9,16 @@ type Props = {
 };
 
 export const Field: React.FC<Props> = ({ className, data }) => {
-  const { id, title, color, hasSideWalk, iconName, price, subtitle } = data;
+  const { id, title, color, iconName, price, subtitle } = data;
   const fieldColorStyles = color
-    ? ({ 'background-color': color } as React.CSSProperties)
+    ? ({ backgroundColor: color } as React.CSSProperties)
     : undefined;
 
   // if (hasSideWalk) return <JailField title={title} />;
 
   return (
     <div
-      className={clsx(
-        className,
-        'flex flex-col justify-center bg-amber-100 p-1',
-      )}
+      className={clsx(className, 'flex flex-col justify-center bg-amber-100')}
       data-id={id}
     >
       {color && (
