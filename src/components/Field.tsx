@@ -1,26 +1,39 @@
+import clsx from 'clsx';
 import type { FieldData } from '../data';
 import { DynamicIcon } from './DynamicIcon';
 import { JailField } from './JailField';
 
 type Props = {
   data: FieldData;
+  className?: string;
 };
 
-export const Field: React.FC<Props> = ({ data }) => {
+export const Field: React.FC<Props> = ({ className, data }) => {
   const { id, title, color, hasSideWalk, iconName, price, subtitle } = data;
   const fieldColorStyles = color
-    ? ({ '--field-color': color } as React.CSSProperties)
+    ? ({ 'background-color': color } as React.CSSProperties)
     : undefined;
 
-  if (hasSideWalk) return <JailField title={title} />;
+  // if (hasSideWalk) return <JailField title={title} />;
 
   return (
-    <div className="" data-id={id}>
-      {color && <div className="" style={fieldColorStyles}></div>}
-      <span className="">{title}</span>
-      {iconName && <DynamicIcon name={iconName} />}
-      {subtitle && <span className="">{subtitle}</span>}
-      {price && <span className="">{price}</span>}
+    <div
+      className={clsx(
+        className,
+        'flex flex-col justify-center bg-amber-100 p-1',
+      )}
+      data-id={id}
+    >
+      {color && (
+        <div
+          className="h-4 w-full justify-self-start"
+          style={fieldColorStyles}
+        ></div>
+      )}
+      <span className="text-base">{title}</span>
+      {iconName && <DynamicIcon name={iconName} className="size-8" />}
+      {subtitle && <span className="text-base">{subtitle}</span>}
+      {price && <span className="text-base">{price}</span>}
     </div>
   );
 };
