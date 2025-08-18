@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+@source inline("{row,col}-start-{1..11}");
+
+@theme {
+  --text-half: 0.5rem; 
+  --text-half--line-height: 0.725rem; 
+  --text-half--font-weight: 500; 
+
+   --text-tiny: 0.625rem;
+  --text-tiny--line-height: 0.875rem; 
+  --text-tiny--font-weight: 500; 
+}
+
