@@ -28,6 +28,7 @@ export default tseslint.config([
       },
     },
     rules: {
+       "curly": ["error", "multi-line"],
       'prettier/prettier': 'warn',
       'react-refresh/only-export-components': [
         'warn',

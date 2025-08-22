@@ -11,7 +11,7 @@ export interface FieldData {
 export type FieldList = Array<FieldData>;
 
 export const fieldList: FieldList = [
-  { id: 0, title: 'Вперёд', subtitle: 'Получите $200 при проходе' },
+  { id: 0, title: 'Старт!' },
   {
     id: 1,
     title: 'Средиземноморский проспект',
