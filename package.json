@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@redux-devtools/extension": "^3.3.0",
     "@tailwindcss/vite": "^4.1.12",
     "@tanstack/react-router": "^1.131.27",
     "@tanstack/react-router-devtools": "^1.131.27",
