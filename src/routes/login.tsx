@@ -60,9 +60,9 @@ function Login() {
   if (isLogged) navigate({ to: '/' });
 
   return (
-    <section className="h-screen w-full">
+    <section className="flex h-screen w-full items-center justify-center">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form className="flex flex-col gap-5 p-5" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="login"
@@ -72,7 +72,6 @@ function Login() {
                 <FormControl>
                   <Input placeholder="Enter your player name" {...field} />
                 </FormControl>
-                <FormDescription>This is your player name</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -86,7 +85,6 @@ function Login() {
                 <FormControl>
                   <Input placeholder="Enter your password" {...field} />
                 </FormControl>
-                <FormDescription>This is your password</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
