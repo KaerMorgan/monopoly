@@ -6,6 +6,7 @@ import pluginReact from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
 export default tseslint.config([
   {
@@ -18,6 +19,7 @@ export default tseslint.config([
       react: pluginReact,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      query: pluginQuery, 
     },
     extends: [js.configs.recommended, tseslint.configs.recommended, prettier],
     languageOptions: {
