@@ -6,7 +6,7 @@
 @source inline("-{top,left,right,bottom}-{2.7}");
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geologica", ui-sans-serif, system-ui, sans-serif;
 
   --text-half: 0.5rem; 
   --text-half--line-height: 0.725rem; 
@@ -15,6 +15,11 @@
    --text-tiny: 0.625rem;
   --text-tiny--line-height: 0.875rem; 
   --text-tiny--font-weight: 500; 
+
+  --color-back: #E6C07B;
+  --color-chat: #69968E;
+  --color-field: #E5CFAE;
+  --color-main-black: #505050;
 }
 
 @theme inline {

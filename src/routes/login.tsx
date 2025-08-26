@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { createFileRoute, useRouter, redirect } from '@tanstack/react-router';
 import { useAuth } from '@/store/authStore';
 
-const fallback = '/dashboard' as const;
+const fallback = '/' as const;
 
 const formSchema = z.object({
   login: z.string().min(3).max(32),

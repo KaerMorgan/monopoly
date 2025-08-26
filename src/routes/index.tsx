@@ -3,7 +3,7 @@ import { checkAuth } from '@/lib/checkAuth';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/')({
-  beforeLoad: checkAuth,
+  // beforeLoad: checkAuth,
   component: Index,
 });
 

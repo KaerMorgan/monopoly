@@ -1,57 +1,31 @@
-import clsx from 'clsx';
 import type { FieldData } from '../../data';
-import { DynamicIcon } from '../DynamicIcon';
-import { JailField } from '../JailField';
-import { getFieldGridClassName } from './getFieldGridClassName';
-import { getFieldCellInfo } from './getFieldCellInfo';
-import { getFieldSizeClassName } from './getFieldSizeClassName';
-import { getFieldBorderClassName } from './getFieldBorderClassName';
-import { FieldPropertyColorLine } from '../FieldPropertyColorLine';
 import { CornerField } from '../CornerField';
+import { PropertyField } from './PropertyField';
+import { ChanceField } from './ChanceField';
+import { ChestField } from './ChestField';
+import { JailField } from '../JailField';
+import { TaxField } from './TaxField';
+import { RailroadField } from './RailRoadField';
+import { CommunalField } from './CommunalField';
 
 type Props = {
   data: FieldData;
 };
 
 export const Field: React.FC<Props> = ({ data }) => {
-  const { id, title, color, iconName, price, subtitle } = data;
-  const { cellSide, isCorner, cellNumber, isSideField } = getFieldCellInfo(id);
-  const gridClassName = getFieldGridClassName(cellSide, cellNumber);
-  const sizeClassName = getFieldSizeClassName(isSideField, isCorner);
-  const borderClassName = getFieldBorderClassName(cellNumber, isSideField);
+  const { id, title, subtitle, type } = data;
 
-  const isTopIconVisible = iconName && isSideField;
-  const isBottomIconVisible = iconName && !isSideField;
+  if (type === 'chance') return <ChanceField data={data} />;
+  if (type === 'chest') return <ChestField data={data} />;
+  if (type === 'tax') return <TaxField data={data} />;
 
-  if (isCorner)
-    return <CornerField data={data} cellSide={cellSide} cellNumber={cellNumber} />;
+  if (type === 'railroad') return <RailroadField data={data} />;
+  if (type === 'communal') return <CommunalField data={data} />;
 
-  return (
-    <div
-      className={clsx(
-        'relative flex flex-col items-center justify-center gap-1 px-1 py-0.5',
-        gridClassName,
-        sizeClassName,
-        borderClassName,
-      )}
-      data-id={id}
-    >
-      {isTopIconVisible && <DynamicIcon name={iconName} size={16} color={color} />}
-      <span className="text-tiny text-center break-all">{title}</span>
-      {isBottomIconVisible && (
-        <DynamicIcon className="my-auto" name={iconName} size={16} color={color} />
-      )}
-      {subtitle && <span className="text-tiny text-center">{subtitle}</span>}
-      {/* {price && <span className="text-tiny text-center">{price}$</span>} */}
+  if (type === 'jail') return <JailField id={id} title={title} subtitle={subtitle} />;
+  if (type === 'start') return <CornerField data={data} />;
+  if (type === 'go-to-jail') return <CornerField data={data} />;
+  if (type === 'parking') return <CornerField data={data} />;
 
-      {color && price && (
-        <FieldPropertyColorLine
-          cellSide={cellSide}
-          color={color}
-          isSideField={isSideField}
-          price={price}
-        />
-      )}
-    </div>
-  );
+  return <PropertyField data={data} />;
 };
