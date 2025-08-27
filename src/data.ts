@@ -10,16 +10,44 @@ export type FieldType =
   | 'go-to-jail'
   | 'parking';
 
-export interface FieldData {
+export interface PropertyFieldData {
   id: number;
   title: string;
-  subtitle?: string;
-  price?: number;
-  iconName?: string;
-  color?: string;
-  isDoubleField?: boolean;
-  type: FieldType;
+  price: number;
+  iconName: string;
+  color: string;
+  type: 'property';
 }
+
+export interface CornerFieldData {
+  id: number;
+  title: string;
+  iconName?: string;
+  isDoubleField?: boolean;
+  type: 'start' | 'jail' | 'go-to-jail' | 'parking';
+}
+
+// жд, вода, лэп - городская инфраструктура
+export interface InfrastractureFieldData {
+  id: number;
+  title: string;
+  iconName: string;
+  price: number;
+  type: 'railroad' | 'communal';
+}
+
+export interface EventFieldData {
+  id: number;
+  title: string;
+  iconName: string;
+  type: 'chest' | 'chance' | 'tax';
+}
+
+export type FieldData =
+  | PropertyFieldData
+  | CornerFieldData
+  | InfrastractureFieldData
+  | EventFieldData;
 
 export type FieldList = Array<FieldData>;
 
@@ -44,14 +72,13 @@ export const fieldList: FieldList = [
   },
   {
     id: 4,
-    title: 'Подоходный налог',
-    subtitle: 'Заплатите $200',
+    title: 'Налог',
     iconName: 'money',
     type: 'tax',
   },
   {
     id: 5,
-    title: 'Железная дорога «Ридинг»',
+    title: 'Железная дорога Север',
     price: 200,
     iconName: 'train',
     type: 'railroad',
@@ -84,7 +111,6 @@ export const fieldList: FieldList = [
   {
     id: 10,
     title: 'Тюрьма',
-    subtitle: 'Обычный посетитель',
     isDoubleField: true,
     iconName: 'prisoner',
     type: 'jail',
@@ -122,7 +148,7 @@ export const fieldList: FieldList = [
   },
   {
     id: 15,
-    title: 'Железная дорога «Пенсильвания»',
+    title: 'Железная дорога Восток',
     price: 200,
     iconName: 'train',
     type: 'railroad',
@@ -180,7 +206,7 @@ export const fieldList: FieldList = [
   },
   {
     id: 25,
-    title: 'Железная дорога «B&O»',
+    title: 'Железная дорога Юг',
     price: 200,
     iconName: 'train',
     type: 'railroad',
@@ -244,7 +270,7 @@ export const fieldList: FieldList = [
   },
   {
     id: 35,
-    title: 'Железная дорога «Шорт Лайн»',
+    title: 'Железная дорога Запад',
     price: 200,
     iconName: 'train',
     type: 'railroad',
@@ -260,8 +286,7 @@ export const fieldList: FieldList = [
   },
   {
     id: 38,
-    title: 'Роскошный налог',
-    subtitle: 'Заплатите $100',
+    title: 'Налог',
     iconName: 'money',
     type: 'tax',
   },

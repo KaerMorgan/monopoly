@@ -18,9 +18,7 @@ export const Board = () => {
       {fieldList.map(field => (
         <Field data={field} key={field.id} />
       ))}
-      <div className="bg-chat col-span-9 col-start-2 row-span-9 row-start-2 flex items-center justify-center">
-        chat placeholder
-      </div>
+      <div className="bg-chat col-span-9 col-start-2 row-span-9 row-start-2 flex items-center justify-center"></div>
     </section>
   );
 };

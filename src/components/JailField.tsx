@@ -8,6 +8,14 @@ type Props = {
 
 export const JailField = ({ title, id, subtitle = 'Обычный посетитель' }: Props) => {
   return (
+    <div
+      className="border-main-black bg-field flex size-full flex-col border-2"
+      data-id={id}
+    >
+      <DynamicIcon name="jail" className="size-full" />
+    </div>
+  );
+  return (
     <div className="border-main-black flex size-22 flex-col border" data-id={id}>
       <div
         className="border-main-black bg-field flex h-full w-full flex-col items-center justify-center gap-0.5 border-b p-0.5"

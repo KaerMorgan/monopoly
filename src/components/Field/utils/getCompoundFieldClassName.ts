@@ -1,19 +1,16 @@
-// import type { FieldData } from '@/data';
-import { getFieldCellInfo, type CellSide } from './getFieldCellInfo';
-
-// export const getCompoundFieldClassName = (data: FieldData) => {
-//   const { cellSide, isCorner, cellNumber, isSideField } = getFieldCellInfo(data.id);
+import clsx from 'clsx';
+import { getFieldCellInfo } from './getFieldCellInfo';
 
 export const getCompoundFieldClassName = (fieldId: number) => {
   const { cellSide, cellNumber, isSideField } = getFieldCellInfo(fieldId);
 
   const gridClassName = getFieldGridClassName(cellSide, cellNumber);
   const borderClassName = getFieldBorderClassName(cellNumber, isSideField);
-  const orientationClassName = getFieldOrientationClassName(cellSide);
+  const orientationClassName = getFieldOrientationClassName(isSideField);
 
-  const baseClassName = 'bg-field flex size-full items-center justify-between gap-1';
+  const baseClassName = 'bg-field grid size-full gap-1 justify-items-center items-center';
 
-  return [baseClassName, orientationClassName, gridClassName, borderClassName].join(' ');
+  return clsx(baseClassName, orientationClassName, gridClassName, borderClassName);
 };
 
 const getFieldBorderClassName = (cellNumber: number, isSideField: boolean): string => {
@@ -32,8 +29,5 @@ const getFieldGridClassName = (cellSide: string, cellNumber: number) => {
   return `row-start-${cellNumber} col-start-1`;
 };
 
-const getFieldOrientationClassName = (cellSide: CellSide) =>
-  (cellSide === 'left' && 'flex-row-reverse') ||
-  (cellSide === 'right' && 'flex-row') ||
-  (cellSide === 'top' && 'flex-col-reverse') ||
-  'flex-col';
+const getFieldOrientationClassName = (isSideField: boolean) =>
+  isSideField ? 'grid-rows-1 grid-cols-3' : 'grid-rows-3 grid-cols-1';

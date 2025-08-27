@@ -1,9 +1,9 @@
 import type { FieldData } from '@/data';
-import { getCompoundFieldClassName } from './getCompoundFieldClassName';
-import { DynamicIcon } from '../DynamicIcon';
-import { getFieldCellInfo } from './getFieldCellInfo';
-import { getFieldRotationClassName } from './getFieldRotationClassName';
 import clsx from 'clsx';
+import { DynamicIcon } from './DynamicIcon';
+import { getCompoundFieldClassName } from './Field/utils/getCompoundFieldClassName';
+import { getFieldCellInfo } from './Field/utils/getFieldCellInfo';
+import { getFieldRotationClassName } from './Field/utils/getFieldRotationClassName';
 
 const chanceGoldColor = '#EB9902';
 
@@ -14,11 +14,12 @@ export const ChanceField = ({ data: { id, title, iconName } }: Props) => {
 
   const compoundFieldClassName = getCompoundFieldClassName(id);
   const rotationClassName = getFieldRotationClassName(cellSide);
+  const directionClassName = cellSide === 'left' && 'dir-rtl';
 
   return (
-    <div className={compoundFieldClassName} data-id={id}>
+    <div className={clsx(compoundFieldClassName, directionClassName)} data-id={id}>
       <span
-        className={clsx(rotationClassName, 'text-tiny text-center')}
+        className={clsx(rotationClassName, 'text-tiny font-bold')}
         style={{ color: chanceGoldColor }}
       >
         {title}

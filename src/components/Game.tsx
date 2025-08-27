@@ -17,9 +17,6 @@ export const Game: React.FC = () => {
 
   return (
     <main className="bg-back flex h-screen max-w-screen items-center justify-center gap-5 p-2">
-      <Button className="absolute top-0 right-0" onClick={logout}>
-        Logout
-      </Button>
       <section className="flex h-full w-full max-w-70 items-center justify-center rounded-xl">
         Players
       </section>
@@ -27,6 +24,9 @@ export const Game: React.FC = () => {
       <section className="flex h-full w-full max-w-70 items-center justify-center rounded-xl">
         Info
       </section>
+      <Button className="absolute top-0 right-0" onClick={logout}>
+        Logout
+      </Button>
     </main>
   );
 };
