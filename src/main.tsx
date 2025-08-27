@@ -5,6 +5,7 @@ import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { useAuth } from './store/authStore';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import '@fontsource/geologica/300.css';
 import '@fontsource/geologica/400.css';
 import '@fontsource/geologica/500.css';
 import '@fontsource/geologica/600.css';

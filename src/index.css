@@ -16,10 +16,14 @@
   --text-tiny--line-height: 0.875rem; 
   --text-tiny--font-weight: 500; 
 
+  --color-main-black: #505050;
+  --color-contrast-black: #292929;
+
+
   --color-back: #E6C07B;
   --color-chat: #69968E;
   --color-field: #E5CFAE;
-  --color-main-black: #505050;
+  --color-player-card-bg: #F0E2D1;
 }
 
 @theme inline {
